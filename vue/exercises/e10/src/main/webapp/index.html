@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>        
+    </head>
+    <body>
+        <div id="app">
+        	<p>
+        		<label for="bookid">Enter book id</label>
+        		<input type="text" v-model="theBookId"/>
+        	</p>
+        	
+            <button type="button" v-on:click="fetchBook">Press to fetch a book</button>
+            <button type="button" v-on:click="clearBook">Press to clear</button>
+            
+            <div>{{ bookInfo.title }}</div>
+            <div>{{ bookInfo.isbn }}</div>
+            <div>{{ bookInfo.numPages }}</div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>

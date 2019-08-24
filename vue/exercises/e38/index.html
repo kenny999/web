@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<p>
+        		<label for="a">Enter a</label>
+        		<input id="a" v-model="aModel"/>
+        	</p>
+        	<div>Here comes the inputted value: {{aModel}}</div>
+            
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

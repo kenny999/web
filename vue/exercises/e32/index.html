@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+        <style>
+        	pre { display: inline; border: solid 1px; padding: 0; }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+        	<p>
+        		<label for="val1">Enter a value</label>
+        		<input id="val1" v-model="v1"/>
+        	</p>
+        	<div>
+        		The value you entered (not trimmed): <pre>{{v1}}</pre>
+        	</div>
+            <p>
+        		<label for="val2">Enter a value</label>
+        		<input id="val2" v-model.trim="v2"/>
+        	</p>
+        	<div>
+        		The value you entered <strong>trimmed</strong>): <pre>{{v2}}</pre>
+        	</div>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

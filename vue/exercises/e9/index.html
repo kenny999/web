@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <form @submit="checkForm">
+                <show-error v-bind:error-messages="myErrors"></show-error>
+                <p>
+                    <label for="firstname">Enter first name</label>
+                    <input type=text" id="firstname" v-model="modelFirstname"/>
+                </p>
+                <p>
+                    <label for="age">Enter age (1 to 100)</label>
+                    <input type=number" id="age" v-model.number="modelAge"/>
+                </p>
+                <p>
+                    <button>Press to submit</button>
+                </p>
+            </form>            
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<input type="radio" value="v1" v-model="theValue"/>
+        	<input type="radio" value="v2" v-model="theValue"/>
+        	<template v-if="theValue === 'v1'">
+        		<h1>My heading 1</h1>
+        		<form>
+        			<button>Press meh</button>
+        		</form>
+        	</template>
+        	<template v-if="theValue === 'v2'">
+        		<h1>The other h1</h1>
+        		<article>
+        			My lorem ipsum
+        		</article>
+
+        	</template>
+
+            
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<the-input v-bind:callback="theCallbackFunction"></the-input>
+        	<div>Here goes the value gotten from the callback function: {{theCallbackedValue}}</div>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

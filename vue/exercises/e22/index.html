@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<p>
+        		<label for="nItem">Enter next item</label>
+        		<input v-model="nextItem" id="nItem"/>
+        	</p>
+    		<button @click="buttonHandler">Press to submit</button>
+    		<hr>
+    		<select v-model="selectedDummy" v-bind:size="options.length">
+    			<option v-for="opt in options" v-bind:value="opt">{{opt}}</option>
+    		</select>
+            
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

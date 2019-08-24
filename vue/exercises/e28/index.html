@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+        <style>
+        	.todo-item span {padding-right: 2em;}
+        </style>
+    </head>
+    <body>
+        <div id="app">
+        	<p>
+        		<label for="id1">Enter next todo</label>
+        		<input id="id1" v-model="nextTodo"/>
+        	</p>
+        	<p>
+        		<button @click="addTodo">Submit</button>
+        	</p>
+        	<hr>
+        	<h1>Current todos</h1>
+        	<todo-item v-for="(todo, index) in allTodos" v-bind:item="todo" v-bind:idx="index" v-on:remove="removeHandler($event)" v-bind:key="index"/>
+            
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

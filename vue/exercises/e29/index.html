@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+        <style>
+        	#pdiv {width: 16em; height: 16em; border: solid 1px}
+        </style>
+    </head>
+    <body>
+        <div id="app">
+        	<span>Select the box. Page up to see first half of list, page down to see second half</span>
+        	<div id="pdiv" v-on:keyup.page-down="onPageDown" v-on:keyup.page-up="onPageUp" tabindex="-1">
+       		<ul>
+       			<li v-for="n in filteredNumbers">{{n}}</li>
+       		</ul>
+       		</div>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

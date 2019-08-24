@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+        <style>
+        	pre {padding: 1px; border: solid 1px;display:inline;}
+        </style>
+    </head>
+    <body>
+        <div id="app">
+        	<p>
+        		<label for="in">Enter a string</label>
+        		<input id="in" v-model="instr"/>
+        	</p>
+        	<strong>Here comes the spacied string:</strong>
+        	<pre>{{instr | spacey-string}}</pre>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

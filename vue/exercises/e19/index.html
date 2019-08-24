@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+        <style>
+        	input[readonly] { border-color: red; }
+        	input[disabled] { border-color: yellow; }
+        	input[required] { border-color: blue; }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+        	<p>
+        		<label for="p1">Press to set/toggle a field disabled</label>
+        		<button id="p1" v-on:click="onP1">Press</button>
+        	</p>
+        	<p>
+        		<label for="p2">Press to set/toggle a field required</label>
+        		<button id="p2" v-on:click="onP2">Press</button>
+        	</p> 
+           	<p>
+        		<label for="p3">Press to set/toggle a field readonly</label>
+        		<button id="p3" v-on:click="onP3">Press</button>
+        	</p>            
+        	<hr>
+        	<p>
+        		<label for="idi1">This field may be disabled</label>
+        		<input type="text" id="idi1" ref="i1"/>
+        	</p>
+        	<p>
+        		<label for="idi2">This field may be required</label>
+        		<input type="text" id="idi2" ref="i2"/>
+        	</p>
+        	<p>
+        		<label for="idi3">This field may be readonly</label>
+        		<input type="text" id="idi3" ref="i3"/>
+        	</p>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

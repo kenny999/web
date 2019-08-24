@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<p>
+        		<label for="odd">Odd</label>
+        		<input type="radio" value="odd" id="odd" v-model="filterType"/>
+        	</p>
+        	<p>
+        		<label for="even">Even</label>
+        		<input type="radio" value="even" id="even" v-model="filterType"/>
+        	</p>
+           	<h1>All numbers</h1>
+        	<ul>
+        		<li v-for="n in numbers">{{n}}</li>
+        	</ul>
+          	<h1>Filtered numbers</h1>
+        	<ul>
+        		<li v-for="n in filteredNumbers">{{n}}</li>
+        	</ul>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

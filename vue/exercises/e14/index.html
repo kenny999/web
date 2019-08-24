@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+        <style>
+        	#the {width: 8em; height: 8em; background-color: teal}
+        	#bah {width: 8em; height: 8em; background-color: yellow}
+        </style>
+    </head>
+    <body>
+        <div id="app">
+
+        	<div id="the" v-on:mouseover="theHover">
+        		Hover me
+        	</div>
+        	<div id="bah" v-if="showIt === true">
+        		Now you see me
+        	</div>
+            
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

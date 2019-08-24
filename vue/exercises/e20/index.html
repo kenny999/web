@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<button @click="clickHandler">Click me to test v-on shorthand</button>
+        	<div v-if="buttonClicked">
+        		Button was clicked yo
+        	</div>
+        	<button @click="disableHandler">Press me to set disabled</button>
+        	<p>
+        	<input :disabled="isDisabled"/>
+            </p>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

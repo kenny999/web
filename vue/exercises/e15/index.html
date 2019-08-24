@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+
+        	<button-component v-bind:label="myLabel" v-on:button-pressed="mainHandler"></button-component>
+        	<div v-if="yayPressed">
+        		It was pressed
+
+        	</div>
+            
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

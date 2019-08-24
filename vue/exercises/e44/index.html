@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	</head>
+    <body>
+        <div id="app">
+        	<p>
+        		<label for="userid">Enter userID</label>
+        		<input id="userid" v-model="userid"/>
+        	</p>
+        	<p>
+        		<button @click="fetchUser">Press</button>
+        	</p>
+        	<dl v-if="user">
+        		<dt>Name</dt><dd>{{user.name}}</dd>
+        		<dt>Email</dt><dd>{{user.email}}</dd>
+        		<dt>Company</dt><dd>{{user.company.name}}</dd>
+        	</dl>
+        	<div v-if="error">{{error}}</div>
+            
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

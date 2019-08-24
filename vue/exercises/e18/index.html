@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+        <style>
+        	.fade-enter-active, .fade-leave-active {transition: opacity .5s;}
+			.fade-enter, .fade-leave-to {opacity: 0;}
+		</style>
+    </head>
+    <body>
+        <div id="app">
+        	<p>
+        		<label for="liverpool">Liverpool</label>
+        		<input id="liverpool" type="radio" value="liverpool" v-model="team"/>
+            </p>
+        	<p>
+        		<label for="manU">Manchester United</label>
+        		<input id="manU" type="radio" value="manU" v-model="team"/>
+            </p>           	
+            <transition name="fade" mode="out-in">
+            	<div v-if="team === 'liverpool'" key="k1">
+            		The selected team is Liverpool
+            	</div>
+	           	<div v-if="team === 'manU'" key="k2">
+    	        	The selected team is Manchester United
+        	    </div>
+        	</transition>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

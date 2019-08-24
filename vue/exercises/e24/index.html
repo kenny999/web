@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+        <style>
+        	#styledDiv {height: 8em; border: solid 1px;}
+        	.yellow {background-color : yellow;}
+        	.green {background-color:green;}
+        	.wide {width: 32em;}
+        	.narrow {width: 8em;}
+        </style>
+    </head>
+    <body>
+        <div id="app">
+        	<fieldset>Toggle radio buttons to change class list on div>
+        	<p>
+        		<label for="r1">Radio 1</label>
+        		<input id="r1" type="radio" value="theR1" v-model="radioValue"/>
+        	</p>
+        	<p>
+        		<label for="r2">Radio 2</label>
+        		<input id="r2" type="radio" value="theR2" v-model="radioValue"/>
+        	</p>
+ 	        </fieldset>
+ 	        <div v-bind:class="[class1s, class2]" id="styledDiv">
+ 	        This is the div
+ 	        </div>            
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<form v-on:submit.prevent="formInterceptSubmit">
+        		<fieldset>
+        			<legend>This is a form that does not submit</legend>
+        			<button @click="formClick">Press</button>
+        			<div>Number times clicked: {{numFormClicked}}</div>
+        			<div>Number times submit was intercepted: {{numFormSubmitIntercepted}}</div>
+        		</fieldset>
+        	</form>
+        	<form>
+        		<fieldset>
+        			<legend>This is a normal form whose button does not submit</legend>
+        			<button @click.prevent="formClick2">Press</button>
+        			<div>Number times clicked: {{numFormClicked2}}</div>
+        		</fieldset>
+        	</form>            
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

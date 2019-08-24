@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<strong>Select a dynamic keep-alive component</strong>
+        	<p>
+        		<label for="komp1">Component 1</label>
+	        	<input id="komp1" type="radio" value="komp1" v-model="selection"/>
+            </p>
+        	<p>
+        		<label for="komp2">Component 2</label>
+	        	<input id="komp2" type="radio" value="komp2" v-model="selection"/>
+            </p>
+        	<p>
+        		<label for="komp3">Component 3</label>
+	        	<input id="komp3" type="radio" value="komp3" v-model="selection"/>
+            </p>
+            <keep-alive>
+            	<component v-bind:is="theComponent"></component>
+        	</keep-alive>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+    	<meta charset="UTF-8">
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<h1>{{text.mainHeading}}</h1>
+        	<form>
+        		<p>
+        			<label for="bday">{{text.form_birthday_label}}</label>
+        			<input type="date"/>
+        		</p>
+        	</form>
+        	<button @click="languageToggle">{{text.languageToggleButton}}</button>
+        </div>
+        <script src="./text.js"></script>
+        <script src="./main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<p>
+        		<label for="r1">Radio1</label>
+        		<input type="radio" value="theR1" id="r1" v-model="radioType"/>
+        	</p>
+           	<p>
+        		<label for="r2">Radio2</label>
+        		<input type="radio" value="theR2" id="r2" v-model="radioType"/>
+        	</p>
+           	<p>
+        		<label for="r3">Radio3</label>
+        		<input type="radio" value="theR3" id="r3" v-model="radioType"/>
+        	</p>
+        	<div id="div1" v-if="radioType === 'theR1'">
+        		Show div1
+        	</div>      
+        	<div id="div2" v-else-if="radioType === 'theR2'">
+        		Show div2
+        	</div>      
+        	<div id="div3" v-else="radioType === 'theR3'">
+        		Show div3
+        	</div>      
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<h1>Enter new user</h1>
+        	<p>
+        		<label for="radiotype1">User type 1</label>
+        		<input type="radio" value="type1" v-model="theType">
+        	</p>
+        	<p>
+        		<label for="radiotype2">User type 2</label>
+        		<input type="radio" value="type2" v-model="theType">
+        	</p>            
+        	<hr>
+        	<template v-if="theType === 'type1'">
+        		<h2>User of type 1</h2>
+        		<p>
+        			<label for="username">Enter username</label>
+        			<input id="username" type="text" required placeholder="Username goes here..." v-model="theUsername" key="username"/>
+        		</p>
+        		<p>
+        			<label for="email">Enter email</label>
+        			<input id="email" type="email" required placeholder="Email goes here..." v-model="theEmail" key="email"/>
+        		</p>        
+        	</template>
+        	<template v-else>
+        		<h2>User of type 2</h2>
+        		<p>
+        			<label for="phone">Enter phone</label>
+        			<input id="phone" type="tel" required placeholder="Phone goes here..." v-model="thePhone" key="phone"/>
+        		</p>
+        		<p>
+        			<label for="userID">Enter userID</label>
+        			<input id="userID" type="text" required placeholder="UserID goes here..." v-model="theUserID" key="userID"/>
+        		</p>        
+        	</template>        
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

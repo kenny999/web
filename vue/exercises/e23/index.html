@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+        <style>
+        	#teamShow {width: 12em; height: 6em; border: solid 1px;}
+        	.manUClass {background-color: red;}
+        	.poolClass {background-color: yellow;}
+        	.chelseaClass {background-color: green;}
+        	.noneClass {}
+        </style>
+    </head>
+    <body>
+        <div id="app">
+        	<p>
+        		<label for="team1">Manchester United</label>
+        		<input id="team1" type="radio" v-model="theTeam" value="ManU"/>
+        	</p>
+        	<p>
+        		<label for="team2">Liverpool</label>
+        		<input id="team2" type="radio" v-model="theTeam" value="Pool"/>
+        	</p>
+        	<p>
+        		<label for="team3">Chelsea</label>
+        		<input id="team3" type="radio" v-model="theTeam" value="Chelsea"/>
+        	</p> 
+        	<div v-bind:class="theTeamClass" id="teamShow">
+        	{{theTeam}}
+        	</div>       
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

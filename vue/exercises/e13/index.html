@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+
+        	<div v-for="(o, index) in obj">
+        		<h1>{{o.heading}} {{index}}</h1>
+        		<article>{{o.text}}</article>
+        	</div>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

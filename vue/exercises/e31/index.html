@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<my-datepicker
+        		v-bind:label="'Ange ett datum i intervallet'"
+        		v-bind:from="'2019-01-01'"
+        		v-bind:to="'2019-06-01'"
+        		v-on:date-entered="doEntered($event)">
+        	</my-datepicker>
+        	<div v-if="theDate">
+        			The date entered is {{theDate}}
+            </div>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

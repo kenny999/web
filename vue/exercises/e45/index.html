@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<strong>Enter data into the form and hit reload to verify its still there</strong>
+        	<form method="POST">
+        	<p>
+        		<label for="firstName">First name</label>
+        		<input id="firstName" v-model="firstName"/>
+            </p>
+        	<p>
+        		<label for="lastName">Last name</label>
+        		<input id="lastName" v-model="lastName"/>
+            </p>
+        	<p>
+        		<label for="maleSex">Male?</label>
+        		<input type="radio" id="maleSex" v-model="sex" value="Male"/>
+            </p>
+        	<p>
+        		<label for="femaleSex">Female?</label>
+        		<input type="radio" id="femaleSex" v-model="sex" value="Female"/>
+            </p>
+        	<p>
+        		<label for="age">Age</label>
+        		<input type="number" min=1 max=299 id="age" v-model="age"/>
+            </p>
+        	<p>
+        		<label for="birthday">Birthday</label>
+        		<input type="date" id="birthday" v-model="birthday"/>
+            </p>        	
+            <p>
+        		<label for="occupation">Occupation</label>
+        		<input id="occupation" v-model="occupation"/>
+            </p>
+        	<p>
+        		<label for="town">Town</label>
+        		<input id="town" v-model="town"/>
+            </p>
+        	<p>
+        		<label for="btn">Press to submit to same page</label>
+        		<button @click="onClick">Press</button>
+            </p>
+        </form>
+      	</div>
+        <script src="./main.js"></script>
+    </body>
+</html>
