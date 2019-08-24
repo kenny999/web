@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p>
+                <label for="btn">To go to Temperature component</label>
+                <button @click="goToTemperature">Press</button>
+            </p>
+            <strong>Temperature component would be shown here</strong>
+            <router-view></router-view>
+            
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

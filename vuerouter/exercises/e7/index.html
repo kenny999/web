@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue-router@2.2.0/dist/vue-router.js"></script>
+        <style>strong { display: block; }</style>
+    </head>
+    <body>
+        <div id="app">
+          <p>
+            <router-link to="/user/foo">/user/foo</router-link>
+            <router-link to="/user/foo/profile">/user/foo/profile</router-link>
+            <router-link to="/user/foo/posts">/user/foo/posts</router-link>
+          </p>
+          <strong>index.html router-view below</strong>
+          <router-view></router-view>
+          <strong>index.html router-view above</strong>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

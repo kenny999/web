@@ -1,0 +1,5 @@
+
+vue create e4
+
+Skapa komponent PrettyList.vue.
+

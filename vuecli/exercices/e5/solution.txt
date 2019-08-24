@@ -1,0 +1,6 @@
+
+vue create e5
+
+Skapa komponent PasswordGenerator
+
+npm run serve

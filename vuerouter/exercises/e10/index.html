@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue-router@2.2.0/dist/vue-router.js"></script>
+    </head>
+    <body>
+        <div id="app">            
+            <ul v-if="showlink">
+                <li><router-link to="/user">Go to user</router-link></li>
+            </ul>
+            <router-view v-on:enteruserevent="doonenteruserevent"></router-view>
+            
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

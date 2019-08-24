@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+        <script src="https://unpkg.com/vuex"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p>
+                <label for="v">Enter value</label>
+                <input id="v" v-model="v"/>
+            </p>
+            <p>
+                <button @click="update">Press</button>
+            </p>
+            <p>
+                {{mainSharedV}}
+            </p>
+            <p>
+                {{mainGetterSharedV}}
+            </p>
+
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

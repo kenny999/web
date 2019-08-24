@@ -1,0 +1,19 @@
+
+vue create e2
+
+Skapa filen src\components\KennethsForm.vue, utveckla komponent.
+
+Ta bort HelloWorld och onödigt ur App.vue. Använd i stället KennethsForm.
+
+npm run build -- --mode development
+
+Gå till directory dist.
+Öppna filen index.html.
+Ändra sökväg för app.js till ./app.js.
+Samma för <link>
+
+Konstaterande: svårt att sätta breakpoint.
+
+npm run serve
+
+Aha! Breakpoint ska sättas i KennethsForm.vue?6ec2

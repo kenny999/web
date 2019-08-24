@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+        <script src="http://unpkg.com/vue-router@2.2.0/dist/vue-router.js"></script>
+        <script src="http://unpkg.com/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li><router-link to="/user/1">User 1</router-link></li>
+                <li><router-link to="/user/2">User 2</router-link></li>
+            </ul>
+            <router-view></router-view>
+            
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

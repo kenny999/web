@@ -1,0 +1,8 @@
+
+vue create e3
+
+npm run build -- --mode development
+
+npm run build -- --mode production
+
+Skillnad: mer "minified" i production-versionen.

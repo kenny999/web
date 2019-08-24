@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+        <script src="https://unpkg.com/vuex"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p>
+                <label for="v">Enter toBeUpper</label>
+                <input id="v" v-model="toBeUpper"/>
+            </p>
+            <p>
+                <label for="v2">Enter toBeLower</label>
+                <input id="v2" v-model="toBeLower"/>
+            </p>
+            <p>
+                <button @click="update">Press</button>
+            </p>
+
+            <p>{{displayUpper}}</p>
+            <p>{{displayLower}}</p>
+
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

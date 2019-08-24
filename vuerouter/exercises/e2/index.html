@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+        <style>
+            .kenneth-active {border: solid 2px;}
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <nav>
+                <div><router-link to="/inbox">Go to inbox?</router-link></div>
+                <div><router-link to="/registration">Go to registration?</router-link></div>
+            </nav>
+            <main>
+                <h1>Show component here</h1>
+                <router-view></router-view>
+            </main>
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Template for Vue app</title>
+        <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+        <script src="https://unpkg.com/vuex"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p>
+                <label for="firstName">Enter first name</label>
+                <input id="firstName" v-model="firstName"/>
+            </p>
+            <p>
+                <button @click="update">Press</button>
+            </p>
+            <p v-if="error">
+                {{error}}
+            </p>
+            <p>
+                First name as stored in Vuex : {{firstNameFromVuex}}
+            </p>
+
+        </div>
+        <script src="./main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+
+vue create e1
+
+Öppna src\App.vue
+
+Ta bort rad:
+<img alt="Vue logo" src="./assets/logo.png">
+
+Ändra:
+Welcome to Your Vue.js App
+till
+Hello world
+
+Töm style-taggen.
+
+Öppna src\components\HelloWorld.vue
+
+Töm hela div:en, och lägg dit:
+    <p>{{ msg }}</p>
+
+Töm style-taggen.
+
