@@ -1,0 +1,15 @@
+
+vue create e10
+
+Kopiera in vue-appen från e9.
+
+npm install axios
+
+Bygg:
+npm run build -- --mode development
+
+Kopiera in java-ee-appen från e9.
+
+Ta innehållet i vue-appens dist och lägg i src/main/webapp.
+
+Öppna index.html från Eclipse och ändra sökväg "/app.js" till "app.js".
