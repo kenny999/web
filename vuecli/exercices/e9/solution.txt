@@ -1,0 +1,7 @@
+
+Skapade javaee-app som svarar på:
+http://localhost:8080/restserver/rest-prefix/books/1
+
+npm install axios
+
+Fixa med app som anropar backend. Enabla CORS.
