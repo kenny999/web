@@ -1,0 +1,269 @@
+/**
+ * BRIS Test tool for ECP/SFR â€“ main style sheet
+ *
+ * @author Tommy Olsson <tommy.olsson@bolagsverket.se>
+ * @date 2017-01-04
+ */
+
+/* ---- media-independent rules ---- */
+
+/* Element styling */
+body {position:relative; margin:0; padding:0; font:100%/1.5 Liberation Sans,Calibri,sans-serif}
+  blockquote, fieldset, form, ol, p, table, ul {margin-top:0; margin-bottom:1.5em}
+  footer, header, main {display:block}
+  main {width:90%; margin:0 auto}
+  form, button, input, select {font-family:DejaVu Sans Condensed,Calibri,sans-serif}
+    fieldset fieldset {margin-right:0.5em; margin-left:0.5em}
+    p+fieldset {margin-top:1.5em}
+      form>fieldset>p {margin:0.25em 0.5em}
+      fieldset fieldset>p {margin:0.25em 0}
+    form>p:last-child {display:flex; flex-flow:column}
+      form>p:last-child button {margin-top:0.5em; margin-bottom:0.5em; margin-left:0}
+    button, input, select {font-size:1em}
+    input[type=checkbox]+label, input[type=radio]+label {margin-left:0.5em}
+    input[type=date]+input[type=time], input[type=number]+select {margin-left:0.5em}
+    *+button {margin-left:0.5em}
+    span.help+button {margin-left:0}
+    form table th {font-weight:normal}
+  h1 {margin:0; font-size:150%; font-weight:bold}
+  table {border-collapse:collapse}
+    thead th {text-align:left; vertical-align:bottom}
+
+/* Message direction symbols */
+h1.other::before {content:"\21d4"}
+h1.reception::before {content:"\21e8"}
+h1.submission::before {content:"\21e6"}
+
+/* Field widths */
+input.AttachmentReference, input.CorrelationID, input.DocumentID, input.MessageID {max-width:33em}
+input.BranchEUID, input.CompanyEUID {max-width:27em}
+input.BusinessRegisterID, input.ManageSubscriptionID {max-width:9em}
+input.BusinessRegisterName {max-width:64em}
+input.CompanyLegalForm {max-width:5em}
+input.CompanyRegistrationNumber {max-width:18em}
+input.date {max-width:8em}
+input.date-time {max-width:16em}
+input.decimal {width:6em}
+input.DocumentFormat {max-width:4em}
+input.positiveInteger {width:4em}
+input.PostalCode {max-width:6em}
+input.UpdateLEDUpdateID {max-width:9em}
+
+@keyframes spinner-line-fade-more {
+  0%, 100% {
+    opacity: 0; /* minimum opacity */
+  }
+  1% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-fade-quick {
+  0%, 39%, 100% {
+    opacity: 0.25; /* minimum opacity */
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-fade-default {
+  0%, 100% {
+    opacity: 0.22; /* minimum opacity */
+  }
+  1% {
+    opacity: 1;
+  }
+}
+
+div.loading {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+/* <xsd:choice> UI widget */
+.choice {}
+  .choice>div+div {margin-top:0.75em}
+  .choice>div>* {margin:0}
+  .choice>div>p+p, .choice p+fieldset {margin-left:2em}
+    .choice>div>p>label:first-child {position:absolute; left:-999em}
+    .choice fieldset {border:0}
+      .choice legend {position:absolute; left:-999em}
+
+/* Field duplicator widget */
+.duplicator>ol {margin-right:0.5em; margin-left:0.5em}
+  .duplicator>ol li {position:relative; margin:0.5em 0; padding-right:3em}
+    .duplicator>ol li button {position:absolute; top:-0.1em; right:0}
+.duplicator>table {width:100%; table-layout:fixed}
+  col.button {width:3em}
+  col.languageID {width:7.5em}
+  .duplicator>table td input {width:100%}
+  .duplicator>table td:last-child {text-align:right}
+
+/* Field help feature */
+span.help {display:block; position:relative; font-size:smaller}
+  span.help::before, .help-icon {color:#3489c8; font-size:larger; content:"\24d8"}
+  .help>span {display:none; position:absolute; z-index:1; border-collapse:collapse; overflow:hidden; max-height:0; box-shadow:0.25em 0.25em 0.5em #666;
+    -webkit-transition:max-height 0.5s ease-out 0.2s;
+    -moz-transition:max-height 0.5s ease-out 0.2s;
+    transition:max-height 0.5s ease-out 0.2s}
+  .no-help-js .help:hover>span, .help.open>span {display:table; max-height:20em}
+    .help>span>span {display:table-row}
+      .help>span>span>span {display:table-cell; border:1px solid #c5c7c8; padding:0 0.25em; background-color:#fffef0}
+
+/* Modal dialog widget */
+.modal-dialog {position:absolute; top:0; right:0; bottom:0; left:0; background:rgba(0, 0, 0, 0.4)}
+  .modal-dialog>div {position:fixed; top:50%; left:50%; width:80%; min-height:4em; margin-top:-2em; margin-left:-40%; border:1px solid #383838; padding-top:2em; box-shadow:0.5em 0.5em 0.5em #333; background:#fff}
+    .modal-dialog div div {padding:0 1em 1em}
+    .modal-dialog button {position:absolute; top:0; right:0; border-radius:0}
+    .close {padding:1px; background:#c73833; color:#fff}
+    .modal-dialog button[type=button]:focus {box-shadow:none; background-color:#c73833}
+
+/* Optional fieldset visibility toggle */
+fieldset.optional {}
+  .optional-js fieldset.optional>legend {cursor:default}
+    .optional-js fieldset.optional>legend::after {margin-left:0.5em; color:#3489c8; content:"\25b2"}
+    .optional-js fieldset.collapsed>legend::after {content:"\25bc"}
+  .optional-js fieldset.collapsed>legend~* {display:none}
+
+/* Message form page */
+main.message-form {max-width:50em}
+  main.message-form h1 {padding:0.25em 0.5em}
+    main.message-form h1::before {padding-right:0.25em}
+
+/* Menu page */
+main.menu {}
+  main.menu h1 {position:absolute; left:-999em}
+  main.menu p>label:first-child {display:inline; margin:0 0.5em 0 0; padding:0; font-size:1em}
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .8s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+span.error {display: block;}
+
+/* ---- screen only ---- */
+
+@media screen {
+  /* Element styling */
+  a {color:#005aa3}
+  form {}
+    fieldset {border:0; padding:1em 0 0.5em; background-color:#f5f5f5}
+      legend {width:100%; box-sizing:border-box; padding:0.25em 0.5em; background-color:#383838; color:#fff}
+      fieldset fieldset {border-bottom:2px solid #383838; padding:0 0 0.5em}
+        fieldset fieldset legend {border-top:2px solid #383838 ;padding:0; background-color:transparent; color:#383838; font-weight:bold}
+      fieldset p.buttons {margin:0.75em 0 0}
+      form>fieldset>p.buttons {margin-right:0.5em; margin-left:0.5em}
+      label {font-size:smaller}
+      p>label:first-child {display:block; padding-top:0.75em}
+      button {border:0; border-radius:0.25em; padding:0.2em 1em; background-color:#3489c8; color:#fff; font-weight:bold}
+        button[role=checkbox]::before {margin-right:0.5em; color:#7f7b71; line-height:0; vertical-align:0.4em; content:"\2583"}
+        button[role=checkbox][aria-checked=true]::before {color:#f0ac00}
+      button[type=button]:focus {box-shadow:0 0 0.5em #519ad2; background-color:#519ad2}
+      button[type=submit]:focus {box-shadow:0 0 0.5em #33c744; background-color:#33c744}
+      button:disabled {background-color:#7d7d7d; color:#ccc}
+      button.add, button.delete, button.secondary, button[role=checkbox] {border:1px solid #3489c8; background-color:transparent; color:#3489c8}
+      button.delete {border-color:#c73833; color:#c73833}
+      button.add:disabled, button.delete:disabled, button.secondary:disabled {border-color:#ccc; color:#ccc}
+      button.delete:disabled {color:#ccc}
+      input[type=date], input[type=number], input[type=text], input[type=time], input[type=url], select {border:1px solid #383838}
+      input[type=date]+input[type=time] {margin-left:0.5em}
+      input[type=text], input[type=url] {width:100%; box-sizing:border-box}
+  footer {margin:3em 0 1.5em; border-top:1px solid #383838; padding:0.75em 0 70px; background:url("../img/eu.png") no-repeat center bottom; text-align:center}
+    footer ul {margin:0; padding:0}
+      footer li {display:inline}
+      footer li.help {float:left}
+        footer a {text-decoration:none}
+      footer a::before {padding:0.25em; content:"\2630"}
+      footer li.help a::before {content:"\24d8"}
+  header {margin:0 0 1.5em; border-bottom:2px solid #383838; box-shadow:0 0.25em 0.5em #c5c7c8; background:linear-gradient(to left, #3489c8, #fff 30%)}
+    header abbr[title] {border:0}
+    header div {padding:100px 30% 0 0.5em; background:url("../img/ejustice.png") no-repeat 0.5em 0.5em; color:#3489c8; font-size:200%; font-weight:bold}
+    table {}
+      thead th {border-bottom:1px solid #383838; color:#383838}
+
+  /* Message form page */
+  main.message-form h1 {position:relative; border-radius:0.5em 0.5em 0 0; background-color:#7d7d7d; color:#fff}
+    main.message-form h1.reception {background-color:#c73833; color:#fff}
+    main.message-form h1.submission {background-color:#3489c8; color:#fff}
+    main.message-form h1 .version {position:absolute; top:-0.2em; right:-0.8em; padding:0 0.5em; box-shadow:0.25em 0.25em 0.5em #666; background-color:#c7b833; color:#000; font-size:75%; font-weight:normal; transform:rotate(30deg)}
+  main.message-form h1+p {border:solid; border-width:0 4px 4px 4px; border-radius:0 0 0.75em 0.75em; padding:0.5em}
+    main.message-form h1+p {border-color:#7d7d7d}
+    main.message-form h1.reception+p {border-color:#c73833}
+    main.message-form h1.submission+p {border-color:#3489c8}
+
+  /* Menu page */
+  main.menu {}
+    main.menu form>p:last-child {display:block}
+      main.menu form>p:last-child button {margin-left:0.5em}
+    .message-list {max-width:30em; margin:0 0.5em 1.5em; border:1px solid #383838; box-shadow:0.25em 0.25em 0.5em #c5c7c8}
+    .message-list form {padding:0 1em 1.5em}
+    .message-list h2 {margin:0 0 0.625em; padding:0.25em; background-color:#7d7d7d; color:#fff; font-size:120%; font-weight:bold}
+    .message-list.reception h2 {background-color:#c73833; color:#fff}
+    .message-list.submission h2 {background-color:#3489c8; color:#fff}
+    .message-list.upload h2 {background-color:#3baa2c; color:#fff}
+      .message-list h2::before {padding-right:0.25em; content:"\21d4"}
+      .message-list.reception h2::before {content:"\21e8"}
+      .message-list.submission h2::before {content:"\21e6"}
+      .message-list.upload h2::before {content:"\267b"}
+      .message-list h2 abbr[title] {border:0}
+    .message-list h3 {margin:0.75em 0; border-top:1px solid #383838; padding:0.25em; font-size:100%; font-weight:bold; color:#444}
+    .message-list ul {margin:0 0.5em 0.75em; padding:0 0 0 24px}
+      .message-list ul li {margin:0 0 0.5em; list-style-type:none}
+      .message-list li.ack {list-style-image:url("../img/ack.png")}
+      .message-list li.ap {list-style-image:url("../img/ap.png")}
+      .message-list li.br {list-style-image:url("../img/br.png")}
+      .message-list li.error {list-style-image:url("../img/error.png")}
+      .message-list li.led {list-style-image:url("../img/led.png")}
+      .message-list li.ping {list-style-image:url("../img/ping.png")}
+      .message-list li.status {list-style-image:url("../img/status.png")}
+      .message-list li.test {list-style-image:url("../img/test.png")}
+        .message-list ul li a {text-decoration:none}
+
+   .error {color: red;}
+   .success {color: green;}
+}
+
+
+/* ---- screen 35em or wider ---- */
+
+@media screen and (min-width:35em) {
+  /* Element styling */
+  form {}
+    fieldset {}
+      fieldset>p.buttons {margin-top:0.75em; padding-left:0}
+    form>p:last-child {display:flex; flex-flow:row wrap; justify-content:space-between; margin-top:3em}
+      form>p:last-child input {margin-top:0; margin-bottom:0}
+  footer {min-height:60px; padding:0.75em 100px 0; background-position:right 10px top 5px}
+    footer li.help {margin-left:-100px}
+  header div {min-height:110px; padding:0 30% 0 150px}
+
+  /* <xsd:choice> UI widget */
+  .choice {display:table; width:100%}
+    .choice>div {display:table-row}
+    .choice>div>* {display:table-cell; margin:0; padding-bottom:0.5em}
+    p.sub {margin-bottom:0.75em; margin-left:2.5em}
+      .choice>p>label:first-child {padding-top:0}
+}
+
+
+/* ---- screen 40em or wider ---- */
+
+@media screen and (min-width:40em) {
+  /* Menu page */
+  .message-list {display:inline-block; width:45%; vertical-align:top}
+}
