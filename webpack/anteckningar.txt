@@ -1,0 +1,227 @@
+
+Undersökning hur Vue sakverkar med webpack.
+----
+
+Skapa ett vue-projekt:
+vue create testing
+
+Få ut webpack-config i development mode:
+vue inspect -> output.txt
+CaseSensitivePathsPlugin?
+FriendlyErrorsWebpackPlugin
+HotModuleReplacementPlugin
+ProgressPlugin
+HtmlWebpackPlugin
+PreloadPlugin (preload)
+PreloadPlugin (prefetch)
+CopyWebpackPlugin
+cheap-module-eval-source-map
+
+Loaders
+cache-loader
+url-loader
+file-loader
+pug-plain-loader
+raw-loader
+vue-style-loader
+css-loader
+postcss-loader
+sass-loader
+less-loader
+
+Få ut webpack-config i production mode:
+vue inspect --mode production -> output_production.txt
+
+Skillnader:
+Annat devtool:
+  * dev: 'cheap-module-eval-source-map'
+  * prod: 'source-map', 
+Ny plugin för prod: mini-css-extract-plugin
+"Optimization för prod tillkommer:
+  * minimizer
+  * splitChunks
+Byte av plugins:
+  * dev: HotModuleReplacementPlugin
+  * prod: OptimizeCssnanoPlugin, MiniCssExtractPlugin, HashedModuleIdsPlugin
+Konfig för HtmlWebpackPlugin
+  * prod: nya options: removeComments, collapseWhitespace, removeAttributeQuotes, collapseBooleanAttributes, removeScriptTypeAttributes
+
+Byggning för dev:
+npm run build -- --mode development
+
+dist-katalogen:
+app.js 937KB
+
+Byggning för prod:
+npm run build -- --mode production
+
+dist-katalogen:
+app.e2713bb0.css 1KB
+chunk-vendors.1cc2a64c.js.map 419KB
+chunk-vendors.1cc2a64c.js 83KB
+app.d95d642b.js.map 22KB
+app.d95d642b.js 5KB
+
+Nu, ska vi testa vad som sker om vi lägger till "lodash".
+I HelloWorld.vue, lägg till:
+var _ = require('lodash');
+console.log(_.head([1,2,3]))
+
+Byggning för dev:
+npm run build -- --mode development
+
+app.js 2323KB
+
+Byggning för prod:
+npm run build -- --mode production
+app.cf97b09c.js 5KB
+app.cf97b09c.js.map 22KB
+chunk-vendors.d2ec5566.js 155KB
+chunk-vendors.d2ec5566.js.map 1101KB
+
+Nu ska vi testa hur vi debuggar ett fel.
+I HelloWorld.vue, ändra console.log till consnole.log
+
+Bygg för development.
+npm run serve
+localhost:8080 i Chrome
+F12
+Felet lokaliseras till rätt rad i HelloWorld.vue
+
+Bygg för production.
+Öppna index.html
+Ändra src="/js/..." till src="./js/..."
+Dubbeklicka index.html
+Felet lokaliseras likadant.
+
+Öppna filen app.fad6b299.js.map
+Notera rad: //# sourceMappingURL=app.fad6b299.js.map
+
+Teknik för att kunna ladda source maps bara internt: https://stackoverflow.com/questions/27345520/source-maps-files-in-production-is-it-safe
+
+Lite att minnas:
+* HTML minifieras av HtmlWebpackPlugin
+* under optimizer är listat minimizer och splitChunks
+* Babel transpiling
+* source maps
+
+Beskrivning utvecklingsmiljö
+---
+I vue-cli-skapat projekt används Webpack, som är bra på att "hantera" filer med diverse plugins.
+För att testa används Webpack-dev-server, som har automatisk "hot module replacement".
+Kommandon:
+npm run serve : Starta server
+npm run build: Bygga
+npm run build -- --mode production : Bygga för produktion
+npm run lint : kolla koden efter fel
+
+När man kodar kan man använda senaste javascript (Ecmascript6 / Ecmascript 2015) eftersom koden transformeras till JS som gamla broswers kan förstå.
+
+I Devtools/Chrome finns Vue-devtools.
+Inställningar för babel: babel.config.js pekar på https://www.npmjs.com/package/@vue/babel-preset-app
+
+
+
+-----------------
+
+Testar "maxat" projekt
+Får välja för CSS:
+Sass/SCSS (dart-sass)
+Sass/SCSS (node-sass)
+Less
+Stylus
+
+TSLint eller ESLint
+
+Unit testing:
+Mocha + Chai
+Jest
+
+E2E testing
+Cypress
+Nightwatch
+
+Alla webpack pluginer
+---
+AutomaticPrefetchPlugin
+BabelMinifyWebpackPlugin
+BannerPlugin
+ClosureWebpackPlugin
+CommonsChunkPlugin
+CompressionWebpackPlugin
+ContextReplacementPlugin
+CopyWebpackPlugin
+DefinePlugin
+DllPlugin
+EnvironmentPlugin
+EvalSourceMapDevToolPlugin
+ExtendedAPIPlugin
+ExtractTextWebpackPlugin
+HashedModuleIdsPlugin
+HotModuleReplacementPlugin
+HtmlWebpackPlugin
+I18nWebpackPlugin
+IgnorePlugin
+Internal webpack plugins
+LimitChunkCountPlugin
+LoaderOptionsPlugin
+MinChunkSizePlugin
+MiniCssExtractPlugin
+ModuleConcatenationPlugin
+NormalModuleReplacementPlugin
+NpmInstallWebpackPlugin
+PrefetchPlugin
+ProfilingPlugin
+ProgressPlugin
+ProvidePlugin
+SourceMapDevToolPlugin
+SplitChunksPlugin
+StylelintWebpackPlugin
+TerserWebpackPlugin
+UglifyjsWebpackPlugin
+WatchIgnorePlugin
+ZopfliWebpackPlugin
+
+Alla webpackloader
+---
+babel-loader
+bundle-loader
+cache-loader
+coffee-loader
+coffee-redux-loader
+coverjs-loader
+css-loader
+eslint-loader
+exports-loader
+expose-loader
+extract-loader
+file-loader
+gzip-loader
+html-loader
+i18n-loader
+imports-loader
+istanbul-instrumenter-loader
+jshint-loader
+json-loader
+json5-loader
+less-loader
+mocha-loader
+multi-loader
+node-loader
+null-loader
+polymer-webpack-loader
+postcss-loader
+raw-loader
+react-proxy-loader
+restyle-loader
+sass-loader
+script-loader
+source-map-loader
+style-loader
+svg-inline-loader
+thread-loader
+transform-loader
+url-loader
+val-loader
+worker-loader
+yaml-frontmatter-loader
