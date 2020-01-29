@@ -1,0 +1,339 @@
+
+övningar
+--
+
+aligna diverse inline-boxes
+forms
+undersök siter
+hamburgermenyer
+styla så att extern länk har en ikon efter
+styla en "fel-ruta" med bild och text
+gör en "tidning" med kolumner baserat på float.
+styla en <dl> med float
+styla en <dl> med flex
+styla flikar (tabs)
+styla ett "kort" med olika mkt innehåll men alltid en knapp längst ner.
+
+färdigheter
+-------------
+kunna debugga på mobil
+
+------------------------------------------
+
+
+Instuderingsfrågor
+----
+
+----------------
+overall layout
+----------------
+  https://www.w3.org/TR/CSS2/visuren.html
+  http://book.mixu.net/css/1-positioning.html
+Beskriv inline formatting context. (https://www.w3.org/TR/CSS2/visuren.html#inline-formatting)
+Vad är en line box? (The rectangular area that contains the boxes that form a line is called a line box.)
+Hur hög är en line box? (A line box is always tall enough for all of the boxes it contains. However, it may be taller than the tallest box it contains)
+När skapas fler än en line box? (When several inline-level boxes cannot fit horizontally within a single line box, they are distributed among two or more vertically-stacked line boxes. Thus, a paragraph is a vertical stack of line boxes.)
+Vad avgör om ett block initierar inline formatting context? (typ när alla barn är inline (display inline/inline-table/inline-block))
+Vad avgör om ett block intierar block formatting context? (typ när inte alla barn är inline)
+Hur kan man använda BFC för att innehålla floats? (https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/)
+Hur kan man använda BFC för att undvika att text wrappar? (https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/)
+Hur beräknas width and height för inline-element? ( width and height are determined by the (text) content dimensions.)
+Hur hanteras margin-top and margin-bottom för inline-element? (are ignored for inline-level elements.)
+
+--------------------
+enheter
+--------------------
+  https://marksheet.io/css-size-units.html
+  https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units
+Till vad kan man använda enheter som cm etc? (print)
+Vad betyder måtten: em, rem, vh, vw?
+Vad händer om man sätter en fotsize i % ? (storlek av parent element)
+Med vilka enheter kan man ange färger? (hexkoder #aaa222 och rgb rgb(100,110,220))
+Vilket är fjärde värdet för rgb() ? (opacity)
+Ge exempel på hur man använder calc() ( width: calc(20% +100px)
+
+alignment
+-------------
+  https://www.smashingmagazine.com/2019/03/css-alignment/
+  https://www.tutorialrepublic.com/css-tutorial/css-alignment.php
+  https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align
+Hur centrerar man horisontellt med "margin"?
+Hur centrerar man text (förutsatta tt det finns plats över? (text-align)
+Om man lägger en text ovanpå en bild, hur alignar man texten till "mitten"? (https://www.smashingmagazine.com/2019/03/css-alignment/)
+Om man har ett gäng inline-block av olika höjd i bredd efter varann, hur centrerar man dessa horisontellt? (vertical-align: middle)
+Vad är urprungliga syftet med text-align och vertical-align? (Aligna text)
+Hur alignar man ngt vertikalt och horisontellt? ({display: flex;align-items: center;justify-content: center;})
+Hur kan man använda float för att aligna? (form t.ex.: label {float:left;clear:left}input {float:right;clear:right;} )
+
+---------------
+Positioning
+---------------
+  https://www.w3.org/TR/css-position-3/
+  http://book.mixu.net/css/single-page.html
+  https://www.w3.org/TR/CSS2/visuren.html#q9.0
+Vilken datastruktur beskriver CSS layout bäst? (träd)
+Vilka 3 positioning schemes finns? (normal flow, float, and absolute positioning)
+Vad är containing block och hur används det? (Each box is given a position with respect to its containing block, but it is not confined by this containing block; it may overflow.)
+Vilket block är containing block för static/relative/fixed och absolute element? (https://www.w3.org/TR/css-position-3/ 3.1)
+Vilket blir containing block om man sätter ett block som absolute i ett dokument utan annan positioning (initial containing block)
+Vad är formatting context? (Boxes in the normal flow belong to a formatting context, which may be block or inline, but not both simultaneously.)
+Vad ingår i normal flow? (normal flow includes block formatting of block-level boxes, inline formatting of inline-level boxes, and relative and sticky positioning of block-level and inline-level boxes.)
+Beskriv de 2 positioning schemes som inte är normal flow. (In the float model, a box is first laid out according to the normal flow, then taken out of the flow and positioned.
+       In the absolute positioning model, a box is removed from the normal flow entirely)
+Under vilka omständigheter är ett element "positioned"?
+Vilka positioning schemes fungerar tillsammans med relative positioning? (normal flow och floats)
+Vilka värden på position gör att ett element kallas positioned? (alla utom static)
+vad betyder "top" för ett positioned element?
+  absolute: how far an absolutely positioned box’s top margin edge is offset below the top edge of the box’s containing block.
+  relative: the offset is with respect to the top edge of the box itself 
+Vad händer om man kombinerar position:absolute och float:left? (float blir none)
+Vad händer om man kombinerar position:relative och float:left? (elementet blir floated)
+Vad är stacking context? (Each box in a given stacking context has an integer stack level, which is its position on the z-axis relative to other boxes in the same stacking contex)
+
+---------------
+Text
+---------------
+  https://1stwebdesigner.com/css3-text-effects-typography/
+  https://www.w3.org/TR/css-text-3/
+Hur gör man en text understruken? (text-decoration: underline; #a:hover{text-decoration: underline}
+Ange exempel på "transformera text". (text-transform: uppercase, lowercase, capitilize)
+
+--------------------
+Floats
+--------------------
+  https://developer.mozilla.org/en-US/docs/Web/CSS/float
+  https://dev.to/tchaflich/here-s-how-floats-work-in-css-13eg
+Vad händer med ett element som får float: left? (The float CSS property places an element on the left or right side of its container, allowing text and inline elements to wrap around it.)
+Vad händer med ett element som får float: left? (t is shifted to the left, or right, until it touches the edge of its containing box, or another floated element.)
+Vad händer om det är ett block-element som är efter elementet som får float:left?
+Vilket trick kan man använda för att få plats med alla floated elements? (A floated element is at least as tall as it's tallest nested floated children. We gave the parent width: 100% and floated it to ensure it is tall enough to encompass it's floated children)
+Beskriv vad som händer:<div style="border: solid 1px"><div style="float: left">Min div</div></div> (floated elements ger inte parent nån höjd utan "går genom golvet")
+Vad händer med exemplet ovan om man ger parent overflow:auto eller hidden(ny BFC och floaten får plats!)
+Om du har en <dl> och sätter float:left på alla dt, vad händer?
+Om du har en <dl> och sätter float:left på alla dt och display:inline på alla dd, vad händer?
+Vad betyder clear:left? ( I don't want any floats near me, in this direction!)
+
+---------------
+flex-box
+---------------
+Vilka properties finns på flex-container?
+Vilka properties finns på flex-item?
+Hur gör man ett item flexibelt och vad menas med det?
+Hur gör man ett item in-flexibelt och vad menas med det?
+Vilka axis'es finns och vad betyder det?
+Hur kan man ange riktning över main-axis?
+Vilka properties gör att man kan justera layout över main-axis?
+Vilka properties gör att man kan justera layout över cross-axis?
+Om man har plats över i main-axis, hur kan den fördelas?
+Hur använder man flex-grow?
+Hur gör man för att några items ska ligga gentemot flex-start och resten gentemot flex-end, över main-axis?
+Hur centerar man ngt i mitten (båda axlar) med flexbox?
+Hur gör man för att ange om items får bryta över flera rader eller ej?
+Hur bestämmer man layout sett över rader?
+
+--------------------
+padding och margin
+--------------------
+vad gäller för margin och padding i en inline formatting context? (In an inline formatting context, boxes are laid out horizontally, one after the other, beginning at the top of a containing block. Horizontal margins, borders, and padding are respected between these boxes.)
+hur förhåller sig margin till block formatting context?
+Förklara denna CSS:		input:focus+label{outline: dashed 1px;padding-left: 2em} input[type=radio]:focus{margin-right: -2em}
+hur centrerar man med margin? (margin: auto, alt margin-left/margin-right: auto)
+hur använder man margin för att aligna till höger? (  margin-left:auto}
+
+--------------------
+Overflow
+--------------------
+  https://developer.mozilla.org/en-US/docs/Web/CSS/overflow
+  https://drafts.csswg.org/css-overflow-3/#propdef-overflow
+Vad händer om man anger för mycket text i ett block (p, div) av fixed bredd? (Texten radbryter bra om det är möjligt, men annars skjuter den över.)
+Vad händer om man anger för mycket text i ett block (p, div) av fixed höjd? (Texten fortsätter under.)
+Hur löser man overflow-problem med scrollbars? (overflow: auto)
+Hur löser man overflow-problem med att klippa texten? (overflow: hidden)
+Vad är det för skillnad på overflow:scroll och overflow:auto (scroll visar alltid scrollbar)
+Hur gör man för att varje överskjutande rad ska få ellipser? (overflow: hidden;text-overflow: ellipsis)
+Hur gör man för att texten ska visa X rader med text och ellipser på sista raden? (line-clamp, men den supportas inte helt)
+
+--------------
+transitions
+--------------
+  https://www.w3.org/TR/css-transitions-1/
+  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
+Hur anger man en property att utföra transition på? (transition-property)
+Hur anger man en tiden för att utföra transition? (transition-duration)
+Hur anger man funktion för att göra tranition över tid (transition-timing-function)
+Hur fördröjer man en transtion innan den startar? (transition-duration)
+
+-----------------
+animations
+-----------------
+  https://www.w3.org/TR/css-animations-1/
+  https://www.creativebloq.com/inspiration/css-animation-examples
+  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations
+Vad är skillnaden mellan transition och animation? (transition går mellan 2 lägen medan animations kan loopa.)
+Vad är en keyframe? (keyframe beskriver animeringens tillstånd vid en viss punkt)
+Vad är keyframes? (keyframes beskriver animeringens tillstånd vid olika punkter)
+Vad specas på elementet? (egenskaper för hur animeringen ska bete sig, t.ex. fördröjning innan den startar).
+Hur anger man vilken keyframe som ska användas (div {animation-name: keyframename})
+Hur anger man hur lång tid det ska ta för animeringen att gå igenom en cykel? (animation-duration)
+Vad är en animation timing function? (timing-funktionerna anger hur animeringen accelererar)
+Hur anger man att en animering ska pågå för alltid? (animation-iteration-count: infinite)
+Hur anger man "riktning" för animeringen, t.ex. att den ska gå åt vartannat håll?(animation-direction)
+Hur gör man för att pausa en animering? (animation-play-state: paused)
+Vilka sätt finns för att ange början och slut för keyframes? (from / 0%, to / 100%)
+Hur använder man animation shorthand (t.ex animation: 3s infinite alternate slidein;)
+Hur använder man flera samtidiga animationer? (med kommatecken: animation-name: fadeInOut, moveLeft300px; animation-duration: 2.5s, 5s)
+
+-----------------
+fonts
+-----------------
+  https://flaviocopes.com/css-fonts/
+  https://www.thesitewizard.com/css/web-fonts-coding.shtml
+  https://www.w3.org/TR/css-text-3/
+Varför heter det font-family? (För att en font innehåller flera fonter...vanlig, bold,...)
+Hur sätter man alternativa fonter? (font-family: Helvetica, Arial)
+Ange ett par generiska font-familues( serif, sans-serif)
+Vad är det för skillnad på sans-serif och serif? (serif har fler detaljer i tecknen)
+Vad är font-weight? (Hur bred en font är)
+Vilka värden finns på font-weight? (100 till 900)
+Vilka font-weight-värden motsvarar normal och bold? (400 och 700)
+Vad är font-stretch? (Hur vid en font blir)
+Hur gör man en text italic? (font-style: italic)
+Hur laddar man en font i CSS? (@font-face)
+Ange några font-format! (TrueType (ttf), Web open font format 2.0 (woff2))
+Vad betyder det att en font är web-safe? (Att den finns i alla webläsare)
+Hur anger man en font på sin sida via @font-fa
+
+-------------------
+selektorer
+-------------------
+  https://www.w3.org/TR/selectors/
+Med vilken selektor matchar man alla element? (*)
+Med vilken selektor matchar man alla element av typ A? (A)
+Med vilken selektor matchar man alla element av typ A förutom dem som matchar selektor B? (A:not(B))
+Med vilken selektor matchar man element av typ A och klass warning? (A.warning)
+Med vilken selektor matchar man element av typ A och attribut e? (A[e])
+Med vilken selektor matchar man element av typ A och attribut e med värde 2? (A[e="2"])
+Med vilken selektor matchar man element av typ A och attribut e är substring bar? (A[e*="bar"])
+Hur matchar man ett element med "någon länk?" (E:any-link)
+Hur matchar man ett element med ej besökt länk? (E:link)
+Hur matchar man ett element med besökt länk? (E:visited)
+Hur matchar man ett element med activated state? (E:active)
+Hur matchar man ett element med focus state? (E:focus)
+Hur matchar man ett element med hover state? (E:hover)
+Hur matchar man ett element med disabled state? (E:disabled)
+Hur matchar man ett element med checked state? (E:checked)
+Hur matchar man ett element som är required? (E:required)
+Hur matchar man det E som är det femte barnet? (E:nth-child(5))
+Hur matchar man alla E som är jämna barn? (E:nth-child(even))
+Hur matchar man alla jämna tr i en tabell, som inte har attribut hidden? tr:nth-child(even of :not([hidden])) {background: silver;}
+Hur matchar man det första barnet av E? (E:first-child)
+Vilken annan selector fungerar ungefär som nth-child? (nth-of-type)
+Vilka combinators finns det? (descendant, child, next-sibling, subsequent-sibling)
+Hur matchar man första raden i en p? (p:first-line}
+Ange några pseudo-elements. (::before, ::after, ::first-line, ::first-letter)
+Hur matchar man element E med både klasserna c och d? (E.c.d)
+
+----------------
+Cascade
+----------------
+
+  https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance
+  https://css-tricks.com/the-c-in-css-the-cascade/
+  https://www.w3.org/TR/css-cascade-3/
+  
+Hur många properties får värden för ett element ("alla", via cascade och inheritance)
+Vad är cascade? (Cascade tar som input en lista av deklarerade värden för en property, sorterar, och "spottar ur sig" ett värde)
+Vilka "stora drag" jobbar cascade med? (1) origin and importance, 2) Specificity 3) Order of appearance)
+Hur funkar det om man använder en shorthand property, med avseende på de properties man inte anger värde för (de tilldelas sin initial value)
+Utifrån ovanstående, vad är det för skillnad på background: green och background-color: green? (...ensures that the background color overrides any earlier declarations that might have set the background to an image with background-image.)
+Vad är det för skillnad på cascade och inheritance? (Cascade jobbar med deklarerade värden, medan det "ärvda värdet" ges om det inte finns cascaded value KOLLA UPP)
+När cascade går igenom "Origin and importance", vem vinner av transition och animation (transition)
+När cascade går igenom "Origin and importance", vem vinner av transition och important (transition)
+När cascade går igenom "Origin and importance", vem vinner av animation och important (animation)
+När cascade går igenom "Origin and importance", vem vinner av normala deklarationer och och important (important)
+Hur relaterar specifitet till cascading? (vid samma origin and importance, vinner regeln med högst specifitet)
+Hur relaterar Order of appearance till cascading? (vid samma origin and importance, och specificity, vinner den sist deklarerade regeln)
+Hur förhåller sig "important" till de 3 olika typerna av stylesheets, user agent, user och author? ("important" i ngt av style sheetsen har högre vikt än de som finns i normal declarations)
+När används inheritance? (När cascade inte kommer fram till ngt värde)
+Hur kan man göra för att ignorera alla deklarationer? (använd värde "unset" som är inherited eller initial i praktiken)
+
+-----------------
+specifitet
+-----------------
+  https://www.w3.org/TR/selectors/#specificity
+  https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
+  https://css-tricks.com/specifics-on-css-specificity/
+Hur räknas specificitet ut? (a = antal id-selektorer, b = antal klass-selektorer och attribut-selektorer, c = antal element-selektorer)
+När avgör specificitet vilken regel som matchar? (När det finns flera rebler som matchar elementet och "order and importance" inte kunde urskilja en vinnare)
+Hur räknas specificiteten på style=""? (Räknas som högre specificitet än a/b/c-uträkningen)
+Hur räknas det att man anger samma simpla selektor flera gånger? (Tillåtet och det ökar specificiteten
+
+----------------
+Media queries
+----------------
+  https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+  https://www.w3.org/TR/css3-mediaqueries/
+
+När evaluerar en media query till sant? (nä villkor för device och alla features är sanna)
+Vilka media types finns? (screen, print, speech, all)
+Hur används only? (Syftet är att äldre webläsare som inte förstår raden inte ska evaluera den till sant. @media only screen and (max-width:632px))
+Hur skriver man för att ange att evauleringen ska bli sann vid flera olika alternativ? (kommatecken: @media (min-height: 680px), screen and (orientation: portrait) { ... })
+Vilka 2 sätt finns för att ange width-tester? (@media (max-width: 30em) { ... } och @media (30em <= width <= 50em ) { ... })
+
+------------
+Färger
+------------
+  https://developer.mozilla.org/en-US/docs/Web/HTML/Applying_color
+  https://developer.mozilla.org/en-US/docs/Web/CSS/color
+
+Vilka properties anger förgrundsfärg och bakgrundsfärg? (color och background-color)
+Hur anger man färg på text-decoration och vad sätter man i parktiken? (text-decoration-color, t.ex. linjen för länkar)
+Hur sätter man färg på markören? (caret-color)
+Hur sätter man färgen mellan kolumner i en multi-kolumn-layout? (column-rule-color)
+Vilka hexkoder är svart, vit, röd, grön och blå? (#000000, #ffffff, #ff0000, #008000, #0000ff)
+Vilken färg r #00ff00? (lime)
+Vad är det för skillnad på rgb och rgba? (rgb betyder röd/grön/blå, medan a betyder "alpha" och anger transparens)
+Hur anger man grön, med 80% opaque? (#33AA3380)
+
+---------
+ikoner
+---------
+Ange 3 ikon-bibliotek (Font awesome, Google, Bootstrap)
+Hur skapar man sin egen icon font? (Börja med SVG-filer och skapa sen fontfiler med icomoon)
+
+------
+bilder
+------
+  https://developer.mozilla.org/en-US/docs/Web/CSS/image
+  https://drafts.csswg.org/css-images-4/#typedef-image
+
+Hur gör man en cirkel med CSS? (border-radius: 50%}
+Hur gör man en oval med CSS? (width: 200px;height: 100px;background: red;border-radius: 100px / 50px;)
+Hur gör man en triangel med CSS? (width: 0;height: 0;border-left: 50px solid transparent;border-right: 50px solid transparent;border-bottom: 100px solid red;)
+Hur roterar man en div? (transform: rotate(20deg))
+Om man har en stor bild, hur gör man för att den inte ska bli större än containern? (max-width: 100%)
+Vilka filformat måste en browser minst stödja? (png och svg)
+Hur kan man ange flera alternativ för en bild? (image-set)
+Hur anger man en fallback för en bild? (background: image("dark.png", black))
+Vad är cross-fade? (When transitioning between images, CSS requires a way to explicitly refer to the intermediate image that is a combination of the start and end images. )
+Hur kan element() användas? (För att skapa en tumnagel av ett element på sidan) (dåligt stöd för denna)
+Vad är en gradient? (A gradient is an image that smoothly fades from one color to another. )
+Hur skapar man en "färg-bild" mellan grå och vit? (background: linear-gradient(white, gray))
+Hur stor blir en bild? (Default är object-fit: fill, vilket fyller hela elementets content box, utifrån objektets egen storlek)
+Vilka värden finns på object-fit och vad betyder de? (fill, se ovan. none: objektets egen storlek används utan att fylla elementets content box. contain: objektet fyller content box men behåller sin aspect ratio.
+
+At-rules
+-----
+Vad gör @charset? (Defines the character set used by the style sheet.)
+Vad gör @import? (Tells the CSS engine to include an external style sheet.)
+Vad gör @media? (A conditional group rule that will apply its content if the device meets the criteria of the condition defined using a media query.)
+Vad gör @supports? (A conditional group rule that will apply its content if the browser meets the criteria of the given condition.)
+Vad gör @font-face? (Describes the aspect of an external font to be downloaded.)
+Vad gör @keyframes? (Describes the aspect of intermediate steps in a CSS animation sequence.)
+
+CSS2 genomgång
+---
+Kap 7 media types
+Hur skriver man en del av CSSen för att gälla bara "screen"? (@media screen {})
+Kap 10 Visual formatting model details
+
